@@ -1,0 +1,26 @@
+{
+    "$schema": "../../../system/schema/extend.json",
+    "name": "Social tags",
+    "description": "Plugin přidává do záhlaví webu meta tagy (Open Graph) pro sociální sítě.",
+    "authors": [
+        {"name": "Lukáš Tesař", "url": "https://tlukas.eu"}
+    ],
+    "version": "1.1",
+    "environment": {
+        "system": "^8.0"
+    },
+    "actions": {
+        "config": "ConfigAction"
+    },
+    "config_defaults": {
+        "app_id": "0000",
+        "site": "@default",
+        "creator": "@default"
+    },
+    "langs": {
+        "social-tags": "lang"
+    },
+    "events": [
+        {"event": "tpl.head.meta", "script": "event/social_tags.php"}
+    ]
+}
