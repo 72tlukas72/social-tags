@@ -29,15 +29,27 @@ return function(array $args) {
             $image_url = _e(Router::file($image, ['absolute' => true]));
         }
         else {
-           $image_url = _e(Template::asset('images/logo.png', ['absolute' => true]));
+            if(!empty($this->getConfig()['image'])) {
+                if(file_exists("./upload/social_tags/" . $this->getConfig()['image'])) {
+                    $image_url = Router::file("upload/social_tags/" . $this->getConfig()['image'], ['absolute' => true]);
+                }
+           }
         }
     }
     else {
         $args['output'] .= "\n<meta property=\"og:type\" content=\"website\">";
-        $image_url = _e(Template::asset('images/logo.png', ['absolute' => true]));
+        
+        if(!empty($this->getConfig()['image'])) {
+            if(file_exists("./upload/social_tags/" . $this->getConfig()['image'])) {
+                $image_url = Router::file("upload/social_tags/" . $this->getConfig()['image'], ['absolute' => true]);
+            }
+        }
     }
     
-    $args['output'] .= "\n<meta property=\"og:image\" content=\"" . $image_url . "\">"; 
+    if(!empty($image_url)) {
+        $args['output'] .= "\n<meta property=\"og:image\" content=\"" . $image_url . "\">";
+    }
+    
     $description = $_index->description ?? Template::siteDescription();
     $args['output'] .= "\n<meta property=\"og:description\" content=\"" . $description . "\">";
     $args['output'] .= "\n<meta property=\"og:site_name\" content=\"" . Template::siteTitle() . "\">";

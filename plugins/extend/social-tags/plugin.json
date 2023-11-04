@@ -13,6 +13,7 @@
         "config": "ConfigAction"
     },
     "config_defaults": {
+        "image": "",
         "app_id": "",
         "site": "",
         "creator": ""
