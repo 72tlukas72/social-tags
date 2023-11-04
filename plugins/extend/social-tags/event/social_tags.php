@@ -6,7 +6,7 @@ use Sunlight\Router;
 use Sunlight\Template;
 
 return function(array $args) {
-    global $_index, $_article;
+    global $_index;
     
     $localeMap = [
         'cs'          => 'cs_CZ',
@@ -20,8 +20,10 @@ return function(array $args) {
     $args['output'] .= "\n<meta property=\"og:title\" content=\"" . Template::title() . "\">";
     
     if(Template::currentIsArticle()) {
+        global $_article;
+        
         $args['output'] .= "\n<meta property=\"og:type\" content=\"article\">";
-
+        
         if($_article['picture_uid']) {
             $image = Article::getImagePath($_article['picture_uid']);
             $image_url = _e(Router::file($image, ['absolute' => true]));
