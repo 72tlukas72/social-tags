@@ -2,8 +2,6 @@
 
 namespace Sunlight;
 
-use SunlightExtend\SocialTags;
-
 return function(array $args) {
     global $_index;
     
