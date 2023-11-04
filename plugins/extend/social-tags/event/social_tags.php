@@ -30,7 +30,7 @@ return function(array $args) {
         }
         else {
             if(!empty($this->getConfig()['image'])) {
-                if(file_exists("./upload/social_tags/" . $this->getConfig()['image'])) {
+                if(file_exists(SL_ROOT . "upload/social_tags/" . $this->getConfig()['image'])) {
                     $image_url = Router::file("upload/social_tags/" . $this->getConfig()['image'], ['absolute' => true]);
                 }
            }
@@ -40,7 +40,7 @@ return function(array $args) {
         $args['output'] .= "\n<meta property=\"og:type\" content=\"website\">";
         
         if(!empty($this->getConfig()['image'])) {
-            if(file_exists("./upload/social_tags/" . $this->getConfig()['image'])) {
+            if(file_exists(SL_ROOT . "upload/social_tags/" . $this->getConfig()['image'])) {
                 $image_url = Router::file("upload/social_tags/" . $this->getConfig()['image'], ['absolute' => true]);
             }
         }
