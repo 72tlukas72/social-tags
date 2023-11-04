@@ -13,9 +13,9 @@
         "config": "ConfigAction"
     },
     "config_defaults": {
-        "app_id": "0000",
-        "site": "@default",
-        "creator": "@default"
+        "app_id": "",
+        "site": "",
+        "creator": ""
     },
     "langs": {
         "social-tags": "lang"
